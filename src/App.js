@@ -3,6 +3,39 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
+const DiceTypes = [
+  {
+      id: 'Ability',
+      diceCode: 1,
+      sides: 8,
+  },
+  {
+    id: 'Proficiency',
+    diceCode: 2,
+    sides: 12,
+  },
+  {
+    id: 'Boost',
+    diceCode: 3,
+    sides: 6,
+  },
+  {
+    id: 'Difficulty',
+    diceCode: 4,
+    sides: 8,
+  },
+  {
+    id: 'Challenge',
+    diceCode: 5,
+    sides: 12,
+  },
+  {
+    id: 'Setback',
+    diceCode: 6,
+    sides: 6,
+  }
+]
+
 const DiceImage = ({ roll }) => {
   if (roll === 1) {
     return <p>Blank</p>
@@ -31,17 +64,56 @@ const DiceImage = ({ roll }) => {
   }
 }
 
+class DiceButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+  }
+
+  increment() {
+    this.props.rollMore(this.props.diceCode);
+  }
+
+  decrement() {
+    this.props.rollLess(this.props.diceCode);
+  }
+
+
+  render () {
+    return(
+      <div>
+        <h2>{this.props.id}: {this.props.rollAmount}</h2>
+        <button onClick = {this.decrement}>-</button>
+        <button onClick = {this.increment}>+</button>
+      </div>
+    )
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        numberOfDice: null,
+        numberOfDice: 0,
         rolls: [],
         rollSum: null,
-        successTotal: null,
-        advantageTotal: null,
-        triumphTotal: null
+        abilityTotal: 0,
+        proficiencyTotal: 0,
+        boostTotal: 0,
+        difficultyTotal: 0,
+        challengeTotal: 0,
+        setbackTotal: 0,
+        successTotal: 0,
+        advantageTotal: 0,
+        triumphTotal: 0,
+        failureTotal: 0,
+        threatTotal: 0,
+        despairTotal: 0,
+        rollAmount: 0
     };
+    this.rollMore = this.rollMore.bind(this);
+    this.rollLess = this.rollLess.bind(this);
   }
   diceRoll = numberOfDice => {
     let rolls = [];
@@ -49,7 +121,31 @@ class App extends React.Component {
     let successTotal = 0;
     let advantageTotal = 0;
     let triumphTotal = 0;
-    for (let i = 0; i < numberOfDice; i++) {
+    let failureTotal = 0;
+    let threatTotal = 0;
+    let despairTotal = 0;
+
+    //roll Ability die
+    for (let i = 0; i < this.state.abilityTotal; i++) {
+      rolls[i] = Math.floor(Math.random() * 8) + 1;
+      rollSum += rolls[i];
+      console.log(rolls[i]);
+      if (rolls[i] === 2 || rolls[i] === 3) {
+        successTotal += 1;
+      } else if (rolls[i] === 4) {
+        successTotal += 2;
+      } else if (rolls[i] === 5 || rolls[i] === 6) {
+        advantageTotal += 1;
+      } else if (rolls[i] === 7) {
+        successTotal += 1;
+        advantageTotal += 1;
+      } else if (rolls[i] === 8) {
+        advantageTotal += 2;
+      }
+    }
+
+    //roll Proficiency die
+    for (let i = 0; i < this.state.proficiencyTotal; i++) {
       rolls[i] = Math.floor(Math.random() * 12) + 1;
       rollSum += rolls[i];
       console.log(rolls[i]);
@@ -68,30 +164,217 @@ class App extends React.Component {
         triumphTotal += 1;
       }
     }
+
+    //roll Boost die
+    for (let i = 0; i < this.state.boostTotal; i++) {
+      rolls[i] = Math.floor(Math.random() * 6) + 1;
+      rollSum += rolls[i];
+      console.log(rolls[i]);
+      if (rolls[i] === 3) {
+        successTotal += 1;
+      } else if (rolls[i] === 4) {
+        successTotal += 1;
+        advantageTotal += 1;
+      } else if (rolls[i] === 5) {
+        advantageTotal += 2;
+      } else if (rolls[i] === 6) {
+        advantageTotal += 1;
+      }
+    }
+
+    //roll Difficult dice
+    for (let i = 0; i < this.state.difficultyTotal; i++) {
+      rolls[i] = Math.floor(Math.random() * 8) + 1;
+      rollSum += rolls[i];
+      console.log(rolls[i]);
+      if (rolls[i] === 2) {
+        failureTotal += 1;
+      } else if (rolls[i] === 3) {
+        failureTotal += 2;
+      } else if (rolls[i] === 4 || rolls[i] === 5 || rolls[i] === 6) {
+        threatTotal += 1;
+      } else if (rolls[i] === 7) {
+        threatTotal += 2;
+      } else if (rolls[i] === 8) {
+        failureTotal += 1;
+        threatTotal += 1;
+      }
+    }
+
+    //roll Challenge die
+    for (let i = 0; i < this.state.challengeTotal; i++) {
+      rolls[i] = Math.floor(Math.random() * 12) + 1;
+      rollSum += rolls[i];
+      console.log(rolls[i]);
+      if (rolls[i] === 2 || rolls[i] === 3) {
+        failureTotal += 1;
+      } else if (rolls[i] === 4 || rolls[i] === 5) {
+        failureTotal += 2;
+      } else if (rolls[i] === 6 || rolls[i] === 7) {
+        threatTotal += 1;
+      } else if (rolls[i] === 8 || rolls[i] === 9) {
+        failureTotal += 1;
+        threatTotal += 1;
+      } else if (rolls[i] === 10 || rolls[i] === 11) {
+        threatTotal += 2;
+      } else if (rolls[i] === 12) {
+        despairTotal += 1;
+      }
+    }
+
+    //roll Setbcak die
+    for (let i = 0; i < this.state.setbackTotal; i++) {
+      rolls[i] = Math.floor(Math.random() * 6) + 1;
+      rollSum += rolls[i];
+      console.log(rolls[i]);
+      if (rolls[i] === 3 || rolls[i] === 4) {
+        failureTotal += 1;
+      } else if (rolls[i] === 5 || rolls[i] === 6) {
+        threatTotal += 1;
+      }
+    }
+
     this.setState({
-      numberOfDice,
+      numberOfDice: 1,
       rolls,
       rollSum,
       successTotal,
       advantageTotal,
-      triumphTotal
+      triumphTotal,
+      failureTotal,
+      threatTotal,
+      despairTotal
     });
   }
-  render(){
+
+  rollMore(diceCode) {
+    let rollAmount;
+    if (diceCode === 1) {
+      rollAmount = this.state.abilityTotal;
+    } else if (diceCode === 2) {
+      rollAmount = this.state.proficiencyTotal;
+    } else if (diceCode === 3) {
+      rollAmount = this.state.boostTotal;
+    } else if (diceCode === 4) {
+      rollAmount = this.state.difficultyTotal;
+    } else if (diceCode === 5) {
+      rollAmount = this.state.challengeTotal;
+    } else if (diceCode === 6) {
+      rollAmount = this.state.setbackTotal;
+    }
+    if (rollAmount < 5) {
+      rollAmount += 1;
+      if (diceCode === 1) {
+        this.setState({
+          abilityTotal: rollAmount
+        });
+      } else if (diceCode === 2) {
+        this.setState({
+          proficiencyTotal: rollAmount
+        })
+      } else if (diceCode === 3) {
+        this.setState({
+          boostTotal: rollAmount
+        });
+      } else if (diceCode === 4) {
+        this.setState({
+          difficultyTotal: rollAmount
+        });
+      } else if (diceCode === 5) {
+        this.setState({
+          challengeTotal: rollAmount
+        });
+      } else if (diceCode === 6) {
+        this.setState({
+          setbackTotal: rollAmount
+        });
+      }
+    }
+  }
+
+  rollLess(diceCode) {
+    let rollAmount;
+    if (diceCode === 1) {
+      rollAmount = this.state.abilityTotal;
+    } else if (diceCode === 2) {
+      rollAmount = this.state.proficiencyTotal;
+    } else if (diceCode === 3) {
+      rollAmount = this.state.boostTotal;
+    } else if (diceCode === 4) {
+      rollAmount = this.state.difficultyTotal;
+    } else if (diceCode === 5) {
+      rollAmount = this.state.challengeTotal;
+    } else if (diceCode === 6) {
+      rollAmount = this.state.setbackTotal;
+    }
+    if (rollAmount > 0) {
+      rollAmount -= 1;
+      if (diceCode === 1) {
+        this.setState({
+          abilityTotal: rollAmount
+        });
+      } else if (diceCode === 2) {
+        this.setState({
+          proficiencyTotal: rollAmount
+        });
+      } else if (diceCode === 3) {
+        this.setState({
+          boostTotal: rollAmount
+        });
+      } else if (diceCode === 4) {
+        this.setState({
+          difficultyTotal: rollAmount
+        });
+      } else if (diceCode === 5) {
+        this.setState({
+          challengeTotal: rollAmount
+        });
+      } else if (diceCode === 6) {
+        this.setState({
+          setbackTotal: rollAmount
+        });
+      }
+    }
+  }
+  render() {
+    let diceBank;
+    diceBank = DiceTypes.map((diceObj, i, diceBankArr) => {
+      let text = diceBankArr[i].id;
+      let diceCode = diceBankArr[i].diceCode;
+      let rollAmount;
+      if (diceCode === 1) {
+        rollAmount = this.state.abilityTotal;
+      } else if (diceCode === 2) {
+        rollAmount = this.state.proficiencyTotal;
+      } else if (diceCode === 3) {
+        rollAmount = this.state.boostTotal;
+      } else if (diceCode === 4) {
+        rollAmount = this.state.difficultyTotal;
+      } else if (diceCode === 5) {
+        rollAmount = this.state.challengeTotal;
+      } else if (diceCode === 6) {
+        rollAmount = this.state.setbackTotal;
+      }
+      return(
+        <DiceButton
+          id={diceBankArr[i].id}
+          diceCode={diceBankArr[i].diceCode}
+          sides={diceBankArr[i].sides}
+          amount={this.state.numberOfDice}
+          rollMore={this.rollMore}
+          rollLess={this.rollLess}
+          rollAmount={rollAmount}
+        />
+      );
+    })
     return(
-      <div className="buttons">
-        {[1, 2, 3, 4, 5].map(number => {
-          let text = number + " Proficiency";
-          return (
-            <button
-              key={number}
-              onClick={ () => this.diceRoll(number) }
-              className="button"
-            >
-              {text}
-            </button>
-          );
-        })}
+      <div className="app">
+        <div className='buttons'>
+          {diceBank}
+        </div>
+        <div>
+          <button onClick= { () => this.diceRoll() }>Roll Dice</button>
+        </div>
         <div className="results">
           {
             this.state.rolls.map((roll, index) => <DiceImage roll={roll} key={index} />)
@@ -100,11 +383,23 @@ class App extends React.Component {
           {
             this.state.numberOfDice ? (
               <div>
-                <h2>Results:</h2>
-                <p>Successes: <span className="sum">{this.state.successTotal}</span></p>
-                <p>Advantages: <span className="sum">{this.state.advantageTotal}</span></p>
-                <p>Triumphs: <span className="sum">{this.state.triumphTotal}</span></p>
-                <p>Dice rolled: {this.state.numberOfDice}</p>
+                <div>
+                  <h2>Overall Results:</h2>
+                  <div>
+                    Successes: <span className='successes'>{this.state.successTotal} </span>
+                    Advantages: <span className='advantages'>{this.state.advantageTotal} </span>
+                    Triumphs: <span className='triumphs'>{this.state.triumphTotal}</span>
+                  </div>
+                  <div>
+                    Failures: <span className='failures'>{this.state.failureTotal} </span>
+                    Threat: <span className='threats'>{this.state.threatTotal} </span>
+                    Failures: <span className='despairs'>{this.state.despairTotal}</span>
+                  </div>
+                </div>
+                <div>
+                  <h2>Outcome:</h2>
+
+                </div>
               </div>
             ) : null
           }
