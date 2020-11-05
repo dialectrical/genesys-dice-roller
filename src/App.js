@@ -336,6 +336,53 @@ class App extends React.Component {
       }
     }
   }
+  calculateOutcome() {
+    let successOrFail = this.state.successTotal - this.state.failureTotal;
+    let advantageOrThreat = this.state.advantageTotal - this.state.threatTotal;
+    let successOrFailResult;
+    let advantageOrThreatResult;
+    let triumphResult;
+    let despairResult;
+    if (successOrFail < 0) {
+      successOrFail *= -1;
+      if (successOrFail > 1) {
+        successOrFailResult = successOrFail + " Failures";
+      } else {
+        successOrFailResult = successOrFail + " Failure";
+      }
+    } else if (successOrFail === 0) {
+      successOrFail = null;
+    } else if (successOrFail > 0) {
+      if (successOrFail > 1) {
+        successOrFailResult = successOrFail + " Successes";
+      } else {
+        successOrFailResult = successOrFail + " Success";
+      }
+    }
+    if (advantageOrThreat < 0) {
+      advantageOrThreat *= -1;
+      if (advantageOrThreat > 1) {
+        advantageOrThreatResult = advantageOrThreat + " Threats";
+      } else {
+        advantageOrThreatResult = advantageOrThreat + " Threat";
+      }
+    } else if (advantageOrThreat === 0) {
+      advantageOrThreat = null;
+    } else if (advantageOrThreat > 0) {
+      if (advantageOrThreat > 1) {
+        advantageOrThreatResult = advantageOrThreat + " Advantages";
+      } else {
+        advantageOrThreatResult = advantageOrThreat + " Advantage";
+      }
+    }
+    if (this.state.triumphTotal > 0) {
+      triumphResult = this.state.triumphTotal + " Triumphs";
+    }
+    if (this.state.despairTotal > 0) {
+      despairResult = this.state.despairTotal + " Despairs";
+    }
+    return (<p>{successOrFailResult} {advantageOrThreatResult} {triumphResult} {despairResult}</p>);
+  }
   render() {
     let diceBank;
     diceBank = DiceTypes.map((diceObj, i, diceBankArr) => {
@@ -379,7 +426,6 @@ class App extends React.Component {
           {
             this.state.rolls.map((roll, index) => <DiceImage roll={roll} key={index} />)
           }
-          {console.log(this.state.successTotal + " " + this.state.advantageTotal + " " + this.state.triumphTotal)}
           {
             this.state.numberOfDice ? (
               <div>
@@ -398,7 +444,9 @@ class App extends React.Component {
                 </div>
                 <div>
                   <h2>Outcome:</h2>
-
+                  <div>
+                    {this.calculateOutcome()}
+                  </div>
                 </div>
               </div>
             ) : null
