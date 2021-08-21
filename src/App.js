@@ -35,33 +35,8 @@ const DiceTypes = [
     sides: 6,
   }
 ]
-
 const DiceImage = ({ roll }) => {
-  if (roll === 1) {
-    return <p>Blank</p>
-  } else if (roll === 2) {
-    return <p>Success</p>
-  } else if (roll === 3) {
-    return <p>Success</p>
-  } else if (roll === 4) {
-    return <p>Success Success</p>
-  } else if (roll === 5) {
-    return <p>Sucess Success</p>
-  } else if (roll === 6) {
-    return <p>Advantage</p>
-  } else if (roll === 7) {
-    return <p>Success Advantage</p>
-  } else if (roll === 8) {
-    return <p>Success Advantage</p>
-  } else if (roll === 9) {
-    return <p>Success Advantage</p>
-  } else if (roll === 10) {
-    return <p>Advantage Advantage</p>
-  } else if (roll === 11) {
-    return <p>Advantage Advantage</p>
-  } else if (roll === 12) {
-    return <p>Triumph</p>
-  }
+  return null;
 }
 
 class DiceButton extends React.Component {
@@ -83,7 +58,7 @@ class DiceButton extends React.Component {
   render () {
     return(
       <div>
-        <h2>{this.props.id}: {this.props.rollAmount}</h2>
+        <h2><span className={this.props.id}>{this.props.id}</span>: {this.props.rollAmount}</h2>
         <button onClick = {this.decrement}>-</button>
         <button onClick = {this.increment}>+</button>
       </div>
@@ -420,7 +395,7 @@ class App extends React.Component {
           {diceBank}
         </div>
         <div>
-          <button onClick= { () => this.diceRoll() }>Roll Dice</button>
+          <button className="rollButton" onClick= { () => this.diceRoll() }>Roll Dice</button>
         </div>
         <div className="results">
           {
@@ -431,15 +406,17 @@ class App extends React.Component {
               <div>
                 <div>
                   <h2>Overall Results:</h2>
-                  <div>
-                    Successes: <span className='successes'>{this.state.successTotal} </span>
-                    Advantages: <span className='advantages'>{this.state.advantageTotal} </span>
-                    Triumphs: <span className='triumphs'>{this.state.triumphTotal}</span>
-                  </div>
-                  <div>
-                    Failures: <span className='failures'>{this.state.failureTotal} </span>
-                    Threat: <span className='threats'>{this.state.threatTotal} </span>
-                    Failures: <span className='despairs'>{this.state.despairTotal}</span>
+                  <div className='rollTotal'>
+                    <div>
+                      Successes: <span className='successes'>{this.state.successTotal} </span>
+                      Advantages: <span className='advantages'>{this.state.advantageTotal} </span>
+                      Triumphs: <span className='triumphs'>{this.state.triumphTotal}</span>
+                    </div>
+                    <div>
+                      Failures: <span className='failures'>{this.state.failureTotal} </span>
+                      Threat: <span className='threats'>{this.state.threatTotal} </span>
+                      Despairs: <span className='despairs'>{this.state.despairTotal}</span>
+                    </div>
                   </div>
                 </div>
                 <div>

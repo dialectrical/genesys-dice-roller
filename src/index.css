@@ -1,13 +1,47 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app {
+  display: grid;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.results {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.Ability {
+  color: #859900 !important;
+}
+
+.Proficiency {
+  color: #b58900 !important;
+}
+
+.Boost {
+  color: #268bd2 !important;
+}
+
+.Difficulty {
+  color: #6c71c4 !important;
+}
+
+.Challenge {
+  color: #dc322f !important;
+}
+
+.Setback {
+  color: #93a1a1 !important;
+}
+
+@media only screen and (max-width: 780px) {
+  h2 {
+   font-size: 1em;
+  }
+  button {
+    height: 2em;
+    width: 2.5em;
+    text-align: center;
+  }
+  .rollButton {
+    text-align: left;
+    width: 31vw;
+  }
 }
