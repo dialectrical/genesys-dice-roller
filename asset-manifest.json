@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/genesys-dice-roller/index.html/static/css/main.e41b3731.chunk.css",
-    "main.js": "/genesys-dice-roller/index.html/static/js/main.f957c25d.chunk.js",
-    "main.js.map": "/genesys-dice-roller/index.html/static/js/main.f957c25d.chunk.js.map",
+    "main.js": "/genesys-dice-roller/index.html/static/js/main.b08d8ed0.chunk.js",
+    "main.js.map": "/genesys-dice-roller/index.html/static/js/main.b08d8ed0.chunk.js.map",
     "runtime-main.js": "/genesys-dice-roller/index.html/static/js/runtime-main.5c517d71.js",
     "runtime-main.js.map": "/genesys-dice-roller/index.html/static/js/runtime-main.5c517d71.js.map",
     "static/js/2.f8d6f5ed.chunk.js": "/genesys-dice-roller/index.html/static/js/2.f8d6f5ed.chunk.js",
@@ -11,13 +11,12 @@
     "static/js/3.3dedfb62.chunk.js.map": "/genesys-dice-roller/index.html/static/js/3.3dedfb62.chunk.js.map",
     "index.html": "/genesys-dice-roller/index.html/index.html",
     "static/css/main.e41b3731.chunk.css.map": "/genesys-dice-roller/index.html/static/css/main.e41b3731.chunk.css.map",
-    "static/js/2.f8d6f5ed.chunk.js.LICENSE.txt": "/genesys-dice-roller/index.html/static/js/2.f8d6f5ed.chunk.js.LICENSE.txt",
-    "static/media/logo.103b5fa1.svg": "/genesys-dice-roller/index.html/static/media/logo.103b5fa1.svg"
+    "static/js/2.f8d6f5ed.chunk.js.LICENSE.txt": "/genesys-dice-roller/index.html/static/js/2.f8d6f5ed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5c517d71.js",
     "static/js/2.f8d6f5ed.chunk.js",
     "static/css/main.e41b3731.chunk.css",
-    "static/js/main.f957c25d.chunk.js"
+    "static/js/main.b08d8ed0.chunk.js"
   ]
 }
