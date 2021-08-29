@@ -6,12 +6,13 @@ export const OutcomeTally = arr => {
   let v = -1;
   let arr1 = arr.slice(0, 3);
   let arr2 = arr.slice(3);
+  console.log(arr);
   let tally = arr1.map(x => {
     i++;
     return x - arr2[i];
   });
   let display = tally.map(x => {
-    if (x > 0) {
+    if (x >= 0) {
       v++;
       return (
         <Grid container direction="column" item xs={4} sm={3}>
@@ -33,6 +34,13 @@ export const OutcomeTally = arr => {
           <Grid item>
             <h2>{Math.abs(x)}</h2>
           </Grid>
+        </Grid>
+      );
+    } else {
+      return (
+        <Grid container direction="column" item xs={4} sm={3}>
+          <Grid item>{""}</Grid>
+          <Grid item>{""}</Grid>
         </Grid>
       );
     }
