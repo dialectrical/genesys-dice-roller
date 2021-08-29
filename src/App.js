@@ -63,14 +63,8 @@ export const App = () => {
   };
 
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="space-around"
-      spacing={10}
-      alignItems="center"
-    >
-      <Grid item direciton="column" xs={12} sm={6}>
+    <Grid container direction="row" spacing={12} alignItems="center">
+      <Grid item direciton="column" xs={6} sm={3}>
         {DICE_MATRIX.map(x => {
           return (
             <Grid item>
@@ -97,8 +91,15 @@ export const App = () => {
         })}
         <button onClick={handleRoll}>Roll</button>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        {result ? result.map(x => <p>{x}</p>) : ""}
+      <Grid
+        container
+        item
+        direction="row"
+        justifyContent="flex-end"
+        item
+        xs={6}
+        sm={9}
+      >
         {result ? OutComeTally(result) : ""}
       </Grid>
     </Grid>

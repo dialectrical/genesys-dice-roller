@@ -1,4 +1,5 @@
 import { RESULT_NAMES } from "./Constants.js";
+import Grid from "@material-ui/core/Grid";
 
 export const OutcomeTally = arr => {
   let i = -1;
@@ -13,16 +14,26 @@ export const OutcomeTally = arr => {
     if (x > 0) {
       v++;
       return (
-        <div>
-          {RESULT_NAMES[v]}: {x}
-        </div>
+        <Grid container direction="column" item xs={4} sm={3}>
+          <Grid item>
+            <h2>{RESULT_NAMES[v]}</h2>
+          </Grid>
+          <Grid item>
+            <h2>{x}</h2>
+          </Grid>
+        </Grid>
       );
     } else if (x < 0) {
       v++;
       return (
-        <div>
-          {RESULT_NAMES[v + 3]}: {Math.abs(x)}
-        </div>
+        <Grid container direction="column" item xs={4} sm={3}>
+          <Grid item>
+            <h2>{RESULT_NAMES[v + 3]}</h2>
+          </Grid>{" "}
+          <Grid item>
+            <h2>{Math.abs(x)}</h2>
+          </Grid>
+        </Grid>
       );
     }
   });
