@@ -33,7 +33,7 @@ export const ResultSetter = (amount, func) => {
       i++;
       return 0;
     }
-  });
+  }, []);
   func(results);
   return func(results);
 };

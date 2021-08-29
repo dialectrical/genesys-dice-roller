@@ -1,10 +1,6 @@
 import { React, useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import {
-  DICE_MATRIX,
-  DICE_NAMES,
-  RESULT_NAMES
-} from "./Components/Constants.js";
+import { DICE_MATRIX, DICE_NAMES } from "./Components/Constants.js";
 import OutComeTally from "./Components/Outcome.js";
 import AmountSetter from "./Components/AmountSetter.js";
 import ResultSetter from "./Components/ResultSetter";
