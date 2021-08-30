@@ -1,9 +1,11 @@
 import { React, useState } from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Paper from "@material-ui/core/Paper";
 import { DICE_MATRIX, DICE_NAMES } from "./Components/Constants.js";
-import OutComeTally from "./Components/Outcome.js";
+import OutcomeTally from "./Components/Outcome.js";
 import AmountSetter from "./Components/AmountSetter.js";
 import ResultSetter from "./Components/ResultSetter";
 
@@ -25,58 +27,69 @@ export const App = () => {
   };
 
   return (
-    <Grid container direction="row" spacing={6} alignItems="center">
-      <Grid item direciton="column" xs={6} sm={3}>
-        {DICE_MATRIX.map(x => {
-          return (
+    <CssBaseline>
+      <Paper>
+        <Grid
+          container
+          direction="row"
+          spacing={6}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Grid item md="auto" direciton="column" xs={6} sm={3}>
+            {DICE_MATRIX.map(x => {
+              return (
+                <Grid item>
+                  <h2 className={DICE_NAMES[DICE_MATRIX.indexOf(x)]}>
+                    {DICE_NAMES[DICE_MATRIX.indexOf(x)]}
+                  </h2>
+                  <ButtonGroup size="large" variant="contained" color="primary">
+                    <Button
+                      value={-1}
+                      id={DICE_MATRIX.indexOf(x)}
+                      onClick={handleChange}
+                    >
+                      -
+                    </Button>
+                    <Button disabled variant="outlined">
+                      {rollAmount[DICE_MATRIX.indexOf(x)]}
+                    </Button>
+                    <Button
+                      value={1}
+                      id={DICE_MATRIX.indexOf(x)}
+                      onClick={handleChange}
+                    >
+                      +
+                    </Button>
+                  </ButtonGroup>
+                </Grid>
+              );
+            })}
             <Grid item>
-              <h2 className={DICE_NAMES[DICE_MATRIX.indexOf(x)]}>
-                {DICE_NAMES[DICE_MATRIX.indexOf(x)]}
-              </h2>
-              <ButtonGroup size="large" variant="contained" color="primary">
-                <Button
-                  value={-1}
-                  id={DICE_MATRIX.indexOf(x)}
-                  onClick={handleChange}
-                >
-                  -
-                </Button>
-                <Button disabled variant="outlined">
-                  {rollAmount[DICE_MATRIX.indexOf(x)]}
-                </Button>
-                <Button
-                  value={1}
-                  id={DICE_MATRIX.indexOf(x)}
-                  onClick={handleChange}
-                >
-                  +
-                </Button>
-              </ButtonGroup>
+              <Button
+                size="large"
+                color="secondary"
+                variant="outlined"
+                onClick={handleRoll}
+              >
+                Roll
+              </Button>
             </Grid>
-          );
-        })}
-        <Grid item>
-          <Button
-            size="large"
-            color="secondary"
-            variant="outlined"
-            onClick={handleRoll}
+          </Grid>
+          <Grid
+            container
+            item
+            direction="row"
+            justifyContent="flex-start"
+            lg={4}
+            xs={6}
+            sm={6}
           >
-            Roll
-          </Button>
+            {result ? OutcomeTally(result) : ""}
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid
-        container
-        item
-        direction="row"
-        justifyContent="flex-start"
-        xs={6}
-        sm={9}
-      >
-        {result ? OutComeTally(result) : ""}
-      </Grid>
-    </Grid>
+      </Paper>
+    </CssBaseline>
   );
 };
 

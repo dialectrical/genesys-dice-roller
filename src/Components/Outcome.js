@@ -6,7 +6,6 @@ export const OutcomeTally = arr => {
   let v = -1;
   let arr1 = arr.slice(0, 3);
   let arr2 = arr.slice(3);
-  console.log(arr);
   let tally = arr1.map(x => {
     i++;
     return x - arr2[i];
