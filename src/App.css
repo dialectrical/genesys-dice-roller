@@ -1,11 +1,6 @@
-.app {
-  display: flex !important;
-  flex-direction: column;
-}
-
-.results {
-  grid-column-start: 2;
-  grid-row-start: 1;
+.test {
+  padding: 600px;
+  color: #859900;
 }
 
 .Ability {
@@ -30,19 +25,4 @@
 
 .Setback {
   color: #93a1a1 !important;
-}
-
-@media only screen and (max-width: 780px) {
-  h2 {
-    font-size: 1em;
-  }
-  button {
-    height: 2em;
-    width: 2.5em;
-    text-align: center;
-  }
-  .rollButton {
-    text-align: left;
-    width: 31vw;
-  }
 }

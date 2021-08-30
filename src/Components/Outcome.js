@@ -1,12 +1,15 @@
 import { RESULT_NAMES } from "./Constants.js";
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 export const OutcomeTally = arr => {
   let i = -1;
   let v = -1;
   let arr1 = arr.slice(0, 3);
   let arr2 = arr.slice(3);
-  console.log(arr);
   let tally = arr1.map(x => {
     i++;
     return x - arr2[i];
@@ -15,26 +18,22 @@ export const OutcomeTally = arr => {
     if (x >= 0) {
       v++;
       return (
-        <Grid container direction="column" item xs={4} sm={3}>
-          <Grid item>
-            <h2>{RESULT_NAMES[v]}</h2>
-          </Grid>
-          <Grid item>
-            <h2>{x}</h2>
-          </Grid>
-        </Grid>
+        <Card raised>
+          <CardContent>
+            <Typography color="textPrimary">{RESULT_NAMES[v]}</Typography>
+            <Typography align="center">{x}</Typography>
+          </CardContent>
+        </Card>
       );
     } else if (x < 0) {
       v++;
       return (
-        <Grid container direction="column" item xs={4} sm={3}>
-          <Grid item>
-            <h2>{RESULT_NAMES[v + 3]}</h2>
-          </Grid>{" "}
-          <Grid item>
-            <h2>{Math.abs(x)}</h2>
-          </Grid>
-        </Grid>
+        <Card raised>
+          <CardContent>
+            <Typography color="textPrimary">{RESULT_NAMES[v + 3]}</Typography>
+            <Typography align="center">{Math.abs(x)}</Typography>
+          </CardContent>
+        </Card>
       );
     } else {
       return (
