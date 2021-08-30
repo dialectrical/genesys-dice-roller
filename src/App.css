@@ -1,11 +1,6 @@
-.app {
-  display: flex !important;
-  flex-direction: column;
-}
-
-.results {
-  grid-column-start: 2;
-  grid-row-start: 1;
+.test {
+  padding: 600px;
+  color: #859900;
 }
 
 .Ability {
