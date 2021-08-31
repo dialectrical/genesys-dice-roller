@@ -26,7 +26,7 @@ export const OutcomeTally = arr => {
     if (x >= 0) {
       v++;
       return (
-        <Grid item classes={{ root: classes.root }}>
+        <Grid item lg={4} classes={{ root: classes.root }}>
           <Card raised>
             <CardContent>
               <Typography color="textPrimary">{RESULT_NAMES[v]}</Typography>
@@ -38,7 +38,7 @@ export const OutcomeTally = arr => {
     } else if (x < 0) {
       v++;
       return (
-        <Grid item classes={{ root: classes.root }}>
+        <Grid item lg={4} classes={{ root: classes.root }}>
           <Card raised>
             <CardContent>
               <Typography color="textPrimary">{RESULT_NAMES[v + 3]}</Typography>
