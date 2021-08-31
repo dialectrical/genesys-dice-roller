@@ -27,7 +27,8 @@ export const RESULT_NAMES = [
   "Success and Success",
   "Failure and Failure",
   "Threat and Threat",
-  "Threat and Failure"
+  "Threat and Failure",
+  "Blank"
 ];
 
 export default { DICE_MATRIX, DICE_NAMES, RESULT_NAMES };
