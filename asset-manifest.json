@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/genesys-dice-roller/static/css/main.56e61dc5.chunk.css",
-    "main.js": "/genesys-dice-roller/static/js/main.ef2cc300.chunk.js",
-    "main.js.map": "/genesys-dice-roller/static/js/main.ef2cc300.chunk.js.map",
-    "runtime-main.js": "/genesys-dice-roller/static/js/runtime-main.24119780.js",
-    "runtime-main.js.map": "/genesys-dice-roller/static/js/runtime-main.24119780.js.map",
-    "static/js/2.9f1e1c08.chunk.js": "/genesys-dice-roller/static/js/2.9f1e1c08.chunk.js",
-    "static/js/2.9f1e1c08.chunk.js.map": "/genesys-dice-roller/static/js/2.9f1e1c08.chunk.js.map",
-    "static/js/3.e8b818cd.chunk.js": "/genesys-dice-roller/static/js/3.e8b818cd.chunk.js",
-    "static/js/3.e8b818cd.chunk.js.map": "/genesys-dice-roller/static/js/3.e8b818cd.chunk.js.map",
+    "main.js": "/genesys-dice-roller/static/js/main.94ba550a.chunk.js",
+    "main.js.map": "/genesys-dice-roller/static/js/main.94ba550a.chunk.js.map",
+    "runtime-main.js": "/genesys-dice-roller/static/js/runtime-main.8f40a117.js",
+    "runtime-main.js.map": "/genesys-dice-roller/static/js/runtime-main.8f40a117.js.map",
+    "static/js/2.e1017563.chunk.js": "/genesys-dice-roller/static/js/2.e1017563.chunk.js",
+    "static/js/2.e1017563.chunk.js.map": "/genesys-dice-roller/static/js/2.e1017563.chunk.js.map",
+    "static/js/3.d8f804e2.chunk.js": "/genesys-dice-roller/static/js/3.d8f804e2.chunk.js",
+    "static/js/3.d8f804e2.chunk.js.map": "/genesys-dice-roller/static/js/3.d8f804e2.chunk.js.map",
     "index.html": "/genesys-dice-roller/index.html",
     "static/css/main.56e61dc5.chunk.css.map": "/genesys-dice-roller/static/css/main.56e61dc5.chunk.css.map",
-    "static/js/2.9f1e1c08.chunk.js.LICENSE.txt": "/genesys-dice-roller/static/js/2.9f1e1c08.chunk.js.LICENSE.txt"
+    "static/js/2.e1017563.chunk.js.LICENSE.txt": "/genesys-dice-roller/static/js/2.e1017563.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.24119780.js",
-    "static/js/2.9f1e1c08.chunk.js",
+    "static/js/runtime-main.8f40a117.js",
+    "static/js/2.e1017563.chunk.js",
     "static/css/main.56e61dc5.chunk.css",
-    "static/js/main.ef2cc300.chunk.js"
+    "static/js/main.94ba550a.chunk.js"
   ]
 }
