@@ -2,15 +2,17 @@ import React from "react";
 import { DICE_MATRIX } from "./Constants.js";
 import Button from "@material-ui/core/Button";
 
-export const Roller = (amount, func) => {
+export const Roller = (amount, func, setLog, setRolled) => {
   let i = 0;
   let results = [0, 0, 0, 0, 0, 0];
+  let rollLog = [];
   const handleRoll = event => {
     amount.map(x => {
       if (x > 0) {
         for (let l = 0; l < x; l++) {
           let roll =
             DICE_MATRIX[i][Math.floor(Math.random() * DICE_MATRIX[i].length)];
+          rollLog.push(roll);
           if (roll == 12) {
             //blank rolled, do nothing
           } else if (roll == 6) {
@@ -30,6 +32,7 @@ export const Roller = (amount, func) => {
           } else {
             results.splice(roll, 1, results[roll] + 1);
           }
+          setLog(rollLog);
         }
         i++;
       } else {
@@ -37,6 +40,7 @@ export const Roller = (amount, func) => {
         return 0;
       }
     }, []);
+    setRolled(amount);
     return func(results);
   };
   return (
