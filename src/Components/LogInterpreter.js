@@ -9,7 +9,7 @@ export const LogInterpreter = (amount, log) => {
       return baseLog[baseLog.indexOf(x)].map(y => {
         return (
           <p>
-            {DICE_NAMES[baseLog.indexOf(x)]}: {y}
+            {DICE_NAMES[baseLog.indexOf(x)]}: {RESULT_NAMES[y]}
           </p>
         );
       });
