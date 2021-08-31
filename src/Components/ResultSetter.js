@@ -2,7 +2,7 @@ import React from "react";
 import { DICE_MATRIX } from "./Constants.js";
 import Button from "@material-ui/core/Button";
 
-export const ResultSetter = (amount, func) => {
+export const Roller = (amount, func) => {
   let i = 0;
   let results = [0, 0, 0, 0, 0, 0];
   const handleRoll = event => {
@@ -51,4 +51,4 @@ export const ResultSetter = (amount, func) => {
   );
 };
 
-export default ResultSetter;
+export default Roller;
