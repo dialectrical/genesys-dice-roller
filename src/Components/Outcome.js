@@ -5,7 +5,15 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
+const useStyles = makeStyles({
+  root: {
+    height: "100%",
+    width: "33%"
+  }
+});
+
 export const OutcomeTally = arr => {
+  const classes = useStyles();
   let i = -1;
   let v = -1;
   let arr1 = arr.slice(0, 3);
@@ -18,22 +26,26 @@ export const OutcomeTally = arr => {
     if (x >= 0) {
       v++;
       return (
-        <Card raised>
-          <CardContent>
-            <Typography color="textPrimary">{RESULT_NAMES[v]}</Typography>
-            <Typography align="center">{x}</Typography>
-          </CardContent>
-        </Card>
+        <Grid item classes={{ root: classes.root }}>
+          <Card raised>
+            <CardContent>
+              <Typography color="textPrimary">{RESULT_NAMES[v]}</Typography>
+              <Typography align="center">{x}</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       );
     } else if (x < 0) {
       v++;
       return (
-        <Card raised>
-          <CardContent>
-            <Typography color="textPrimary">{RESULT_NAMES[v + 3]}</Typography>
-            <Typography align="center">{Math.abs(x)}</Typography>
-          </CardContent>
-        </Card>
+        <Grid item classes={{ root: classes.root }}>
+          <Card raised>
+            <CardContent>
+              <Typography color="textPrimary">{RESULT_NAMES[v + 3]}</Typography>
+              <Typography align="center">{Math.abs(x)}</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       );
     }
   });

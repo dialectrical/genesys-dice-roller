@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import OutcomeTally from "./Components/Outcome.js";
-import ResultSetter from "./Components/ResultSetter";
+import Roller from "./Components/ResultSetter";
 import AmountButtons from "./Components/AmountButtons.js";
 
 const useStyles = makeStyles({
@@ -15,33 +15,18 @@ const useStyles = makeStyles({
 
 export const App = () => {
   const [rollAmount, setRollAmount] = useState([0, 0, 0, 0, 0, 0]);
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([0, 0, 0, 0, 0, 0]);
   const classes = useStyles();
 
   return (
     <Paper elevation={6} classes={{ root: classes.root }}>
-      <Grid
-        container
-        direction="row"
-        spacing={3}
-        alignItems="center"
-        justifyContent="flex-start"
-      >
-        <Grid item direciton="column">
+      <Grid container direction="row" spacing={3} alignItems="flex-start">
+        <Grid container item lg={4} direction="row">
           <Grid item>{AmountButtons(rollAmount, setRollAmount)}</Grid>
-          <Grid item>{ResultSetter(rollAmount, setResult)}</Grid>
+          <Grid item>{Roller(rollAmount, setResult)}</Grid>
         </Grid>
-        <Grid
-          container
-          spacing={4}
-          alignItems="center"
-          justifyContent="space-evenly"
-          direction="row"
-          lg={9}
-          xs={9}
-          sm={9}
-        >
-          {result ? OutcomeTally(result) : ""}
+        <Grid container item lg={8} spacing={3} alignContent="space-around">
+          {OutcomeTally(result)}
         </Grid>
       </Grid>
     </Paper>
