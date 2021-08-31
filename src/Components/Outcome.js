@@ -35,13 +35,6 @@ export const OutcomeTally = arr => {
           </CardContent>
         </Card>
       );
-    } else {
-      return (
-        <Grid container direction="column" item xs={4} sm={3}>
-          <Grid item>{""}</Grid>
-          <Grid item>{""}</Grid>
-        </Grid>
-      );
     }
   });
   return display;
