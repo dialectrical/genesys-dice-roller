@@ -2,7 +2,7 @@ import React from "react";
 import { DICE_MATRIX } from "./Constants.js";
 import Button from "@material-ui/core/Button";
 
-export const Roller = (amount, func, setLog) => {
+export const Roller = (amount, func, setLog, setRolled) => {
   let i = 0;
   let results = [0, 0, 0, 0, 0, 0];
   let rollLog = [];
@@ -40,6 +40,7 @@ export const Roller = (amount, func, setLog) => {
         return 0;
       }
     }, []);
+    setRolled(amount);
     return func(results);
   };
   return (

@@ -16,6 +16,7 @@ const useStyles = makeStyles({
 
 export const App = () => {
   const [rollAmount, setRollAmount] = useState([0, 0, 0, 0, 0, 0]);
+  const [rolledAmount, setRolledAmount] = useState();
   const [result, setResult] = useState([0, 0, 0, 0, 0, 0]);
   const [rollLog, setRollLog] = useState();
   const classes = useStyles();
@@ -25,11 +26,13 @@ export const App = () => {
       <Grid container direction="row" spacing={3} alignItems="flex-start">
         <Grid container item lg={4} direction="row">
           <Grid item>{AmountButtons(rollAmount, setRollAmount)}</Grid>
-          <Grid item>{Roller(rollAmount, setResult, setRollLog)}</Grid>
+          <Grid item>
+            {Roller(rollAmount, setResult, setRollLog, setRolledAmount)}
+          </Grid>
         </Grid>
         <Grid container item lg={8} spacing={3} alignContent="space-around">
           {OutcomeTally(result)}
-          {rollLog ? LogInterpreter(rollAmount, rollLog) : ""}
+          {rollLog ? LogInterpreter(rolledAmount, rollLog) : ""}
         </Grid>
       </Grid>
     </Paper>
