@@ -12,4 +12,4 @@ A single page web application that rolls dice for Fantasy Flight Games' [Genesys
 
 ## How to run this project
 
-Clone the repo, install React and Material UI, and run `npm start` in the project's root directory. [check out the demo page](https://dialectrical.github.io/genesys-dice-roller/)
+Clone the repo, install React and Material UI, and run `npm start` in the project's root directory or [check out the demo page](https://dialectrical.github.io/genesys-dice-roller/).
