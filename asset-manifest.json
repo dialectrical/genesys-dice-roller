@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/genesys-dice-roller/static/css/main.56e61dc5.chunk.css",
-    "main.js": "/genesys-dice-roller/static/js/main.6bed91f1.chunk.js",
-    "main.js.map": "/genesys-dice-roller/static/js/main.6bed91f1.chunk.js.map",
+    "main.js": "/genesys-dice-roller/static/js/main.bd52bade.chunk.js",
+    "main.js.map": "/genesys-dice-roller/static/js/main.bd52bade.chunk.js.map",
     "runtime-main.js": "/genesys-dice-roller/static/js/runtime-main.60002df1.js",
     "runtime-main.js.map": "/genesys-dice-roller/static/js/runtime-main.60002df1.js.map",
     "static/js/2.cb8d5ce2.chunk.js": "/genesys-dice-roller/static/js/2.cb8d5ce2.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.60002df1.js",
     "static/js/2.cb8d5ce2.chunk.js",
     "static/css/main.56e61dc5.chunk.css",
-    "static/js/main.6bed91f1.chunk.js"
+    "static/js/main.bd52bade.chunk.js"
   ]
 }
