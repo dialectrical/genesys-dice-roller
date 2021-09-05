@@ -6,6 +6,7 @@ export const StyledLogCard = styled(Card)`
   padding: "30%";
   @media (max-width: 960px) {
     text-align: left;
+    margin-left: 7%;
     padding: 0;
     width: 53vw;
   }
