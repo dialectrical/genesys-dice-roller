@@ -8,7 +8,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Card from "@material-ui/core/Card";
+import { StyledLogCard } from "./Styles/StyledLogCard";
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 
@@ -36,7 +36,7 @@ export const LogInterpreter = (amount, log) => {
       }
     });
     return (
-      <Card raised>
+      <StyledLogCard raised>
         <CardContent>
           <TableContainer components={Paper} className={classes.container}>
             <Table stickyHeader size="small">
@@ -50,7 +50,7 @@ export const LogInterpreter = (amount, log) => {
             </Table>
           </TableContainer>
         </CardContent>
-      </Card>
+      </StyledLogCard>
     );
   }
 };

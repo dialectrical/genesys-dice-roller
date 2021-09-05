@@ -1,7 +1,7 @@
 import { RESULT_NAMES } from "./Constants.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
+import { StyledOutcomeCard } from "./Styles/StyledOutcomeCard";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
@@ -27,24 +27,28 @@ export const OutcomeTally = arr => {
       v++;
       return (
         <Grid item lg={4} classes={{ root: classes.root }}>
-          <Card raised>
+          <StyledOutcomeCard raised>
             <CardContent>
-              <Typography color="textPrimary">{RESULT_NAMES[v]}</Typography>
+              <Typography color="textPrimary" align="center">
+                {RESULT_NAMES[v]}
+              </Typography>
               <Typography align="center">{x}</Typography>
             </CardContent>
-          </Card>
+          </StyledOutcomeCard>
         </Grid>
       );
     } else if (x < 0) {
       v++;
       return (
         <Grid item lg={4} classes={{ root: classes.root }}>
-          <Card raised>
+          <StyledOutcomeCard raised>
             <CardContent>
-              <Typography color="textPrimary">{RESULT_NAMES[v + 3]}</Typography>
+              <Typography color="textPrimary" align="center">
+                {RESULT_NAMES[v + 3]}
+              </Typography>
               <Typography align="center">{Math.abs(x)}</Typography>
             </CardContent>
-          </Card>
+          </StyledOutcomeCard>
         </Grid>
       );
     }
