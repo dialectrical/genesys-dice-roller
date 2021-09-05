@@ -26,7 +26,7 @@ export const App = () => {
           item
           xs={8}
           lg={8}
-          spacing={3}
+          spacing={1}
           alignContent="space-around"
         >
           {OutcomeTally(result)}

@@ -6,6 +6,6 @@ export const StyledLogCard = styled(Card)`
   @media (max-width: 960px) {
     height: 58vw;
     text-align: left;
-    width: 53vw;
+    width: 55vw;
   }
 `;
