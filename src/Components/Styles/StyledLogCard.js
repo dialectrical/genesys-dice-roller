@@ -3,11 +3,9 @@ import Card from "@material-ui/core/Card";
 
 export const StyledLogCard = styled(Card)`
   height: "100%";
-  padding: "30%";
   @media (max-width: 960px) {
+    height: 58vw;
     text-align: left;
-    margin-left: 7%;
-    padding: 0;
     width: 53vw;
   }
 `;

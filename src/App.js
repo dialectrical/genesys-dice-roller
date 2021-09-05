@@ -30,7 +30,7 @@ export const App = () => {
           alignContent="space-around"
         >
           {OutcomeTally(result)}
-          <Grid item lg={12}>
+          <Grid item xs={8} lg={12}>
             {LogInterpreter(rolledAmount, rollLog)}
           </Grid>
         </Grid>
