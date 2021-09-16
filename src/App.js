@@ -15,7 +15,7 @@ export const App = () => {
   return (
     <StyledPaper elevation={6}>
       <Grid container direction="row" spacing={3} alignItems="flex-start">
-        <Grid container item xs={4} lg={4} direction="row">
+        <Grid container item xs={4} lg={4} direction="column" spacing={1}>
           <Grid item>{AmountButtons(rollAmount, setRollAmount)}</Grid>
           <Grid item>
             {Roller(rollAmount, setResult, setRollLog, setRolledAmount)}
@@ -29,8 +29,10 @@ export const App = () => {
           spacing={1}
           alignContent="space-around"
         >
-          {OutcomeTally(result)}
-          <Grid item xs={8} lg={12}>
+          <Grid item container xs={12} lg={12} spacing={1}>
+            {OutcomeTally(result)}
+          </Grid>
+          <Grid item xs={12} lg={12}>
             {LogInterpreter(rolledAmount, rollLog)}
           </Grid>
         </Grid>

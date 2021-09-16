@@ -19,7 +19,7 @@ export const OutcomeTally = arr => {
     if (x >= 0) {
       v++;
       return (
-        <StyledOutcomeGrid item xs={4} lg={4}>
+        <StyledOutcomeGrid item xs={5} lg={4}>
           <StyledOutcomeCard raised>
             <CardContent>
               <StyledOutcomeTypography color="textPrimary" align="center">
@@ -35,7 +35,7 @@ export const OutcomeTally = arr => {
     } else if (x < 0) {
       v++;
       return (
-        <StyledOutcomeGrid item xs={4} lg={4}>
+        <StyledOutcomeGrid item xs={5} lg={4}>
           <StyledOutcomeCard raised>
             <CardContent>
               <StyledOutcomeTypography color="textPrimary" align="center">
