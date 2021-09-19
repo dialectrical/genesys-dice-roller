@@ -36,7 +36,7 @@ export const AmountButtons = (arr, func) => {
         <Typography variant="h5" className={DICE_NAMES[DICE_MATRIX.indexOf(x)]}>
           {DICE_NAMES[DICE_MATRIX.indexOf(x)]}
         </Typography>
-        <ButtonGroup size="large" variant="contained" color="primary">
+        <ButtonGroup size="small" variant="contained" color="primary">
           <Button value={-1} id={DICE_MATRIX.indexOf(x)} onClick={handleChange}>
             -
           </Button>

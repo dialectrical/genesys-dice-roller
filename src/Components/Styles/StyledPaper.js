@@ -8,6 +8,6 @@ export const StyledPaper = styled(Paper)`
     text-align: left;
     margin-left: 0vw;
     margin-right: 0vw;
-    margin-top: 0vw;
+    margin-top: 25vw;
   }
 `;

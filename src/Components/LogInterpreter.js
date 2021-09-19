@@ -14,8 +14,7 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
   container: {
-    height: 300,
-    width: "100%"
+    height: 300
   }
 });
 
